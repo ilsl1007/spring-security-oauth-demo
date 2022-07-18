@@ -1,0 +1,18 @@
+### 客户端模式获取 Token
+POST  http://localhost:8080/oauth/token?grant_type=client_credentials&client_id=userservice2&client_secret=1234
+Content-Type: application/json
+
+### Token 校验
+POST  http://localhost:8080/oauth/check_token?client_id=userservice1&client_secret=1234&token=eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOlsiZm9vIl0sInNjb3BlIjpbIkZPTyJdLCJleHAiOjE2NTgxNDQ2OTAsImF1dGhvcml0aWVzIjpbIlJFQUQiLCJXUklURSJdLCJqdGkiOiI3NWVjZTYyNS0yYmVkLTQxMmMtYWIxNy1iYWZlYjhkODVhMzQiLCJjbGllbnRfaWQiOiJ1c2Vyc2VydmljZTIifQ.IDTZ5zJNPS8qsFZeg11h1YODYChs_PWX3iMU8y9Vzngxc7h0SYHba7aUBbPpn1ThtA4CYFKTRgaUbbvRH6pT8FLimd1Iv5swa1gcaMCJB2t2hiOge2Pxf5uqNn_zf36reazonEs_MDGGDXzf2rd__FeO4xwxu55psZf9FoOXMAE
+Content-Type: application/json
+
+### 密码模式获取 Token
+POST  http://localhost:8080/oauth/token?grant_type=password&client_id=userservice1&client_secret=1234&username=writer&password=writer
+Content-Type: application/json
+
+### 授权码模式地址
+GET http://localhost:8080/oauth/authorize?response_type=code&client_id=userservice3&redirect_uri=https://baidu.com
+
+### 通过授权码换取 Token
+POST  http://localhost:8080/oauth/token?grant_type=authorization_code&client_id=userservice3&client_secret=1234&code=ZWcPzb&redirect_uri=https%3A%2F%2Fbaidu.com
+Content-Type: application/json
